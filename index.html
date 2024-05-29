@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WEB design</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles/index.css" />
+  </head>
+  <body>
+    <main>
+      <section class="hero">
+        <div class="hero-container">
+          <div class="wrapper-hero-content">
+            <h1 class="hero-title">
+              Разработка Веб-Дизайна:<br />
+              <span
+                >Искусство Конверсии и <br />
+                Юзабилити</span
+              >
+            </h1>
+            <a href="#footer">
+              <button class="hero-button js-hero-button" type="button">
+                Хочу
+              </button>
+              <button class="hero-button js-hero-button" type="button" hidden>
+                Получить консультацию
+              </button>
+            </a>
+          </div>
+          <div class="container-hero-photo">
+            <img src="./image/hero.png" alt="" />
+          </div>
+        </div>
+      </section>
+
+      <section class="create-section">
+        <div class="container">
+          <h3 class="create__title">Мы создаем:</h3>
+          <p class="create-text">
+            Более 8 лет мы разрабатываем веб-дизайн для брендов, где продуманий
+            эффективный функционал и уникальный дизайн работают на цели вашего
+            бизнеса.
+          </p>
+          <ul class="create__list">
+            <li class="create__item">
+              <p class="create__item-text"><span>1</span> Лендинг-пейдж</p>
+            </li>
+            <li class="create__item">
+              <p class="create__item-text"><span>2</span>Корпоративный сайт</p>
+            </li>
+            <li class="create__item">
+              <p class="create__item-text"><span>3</span> Портал</p>
+            </li>
+            <li class="create__item">
+              <p class="create__item-text"><span>4</span>Личный кабинет</p>
+            </li>
+            <li class="create__item">
+              <p class="create__item-text"><span>5</span>Интернет-магазин</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!--  ====================================      STAGES  ================================       -->
+
+      <section class="stages-section">
+        <div class="container">
+          <ul class="stages__list js-stages__list">
+            <li class="stages__item stages__item-one" id="1">БРИФ</li>
+            <li class="stages__item stages__item-two" id="2">ИССЛЕДОВАНИЕ</li>
+            <li class="stages__item stages__item-three is-active" id="3">
+              РАЗРАБОТКА ПРОТОТИПА
+            </li>
+            <li class="stages__item stages__item-four" id="4">ВЕБ-ДИЗАЙН</li>
+            <li class="stages__item stages__item-five" id="5">
+              ПОДГОТОВКА ПОД FRONT-END РАЗРАБОТКУ И ВЕРСТКУ
+            </li>
+          </ul>
+        </div>
+        <div class="stages-wrapper-content">
+          <ul class="stages__text-container js-text-container">
+            <li class="item-hidden" data-id="1">
+              <p class="stages__title">БРИФ</p>
+              <p class="stages__text">
+                Начнем с серии вопросов и ответов. После этого наша творческая
+                группа (дизайнер, арт-директор и руководитель проекта) создает
+                план работы над сайтом.
+              </p>
+            </li>
+            <li class="item-hidden" data-id="2">
+              <p class="stages__title">Исследование</p>
+              <p class="stages__text">
+                Далее мы ищем лучшие дизайнерские решения и анализируем рынок и
+                конкурентов в нише. Мы начинаем подготовку к этапу
+                проектирования, где полностью исследуем детали и цели проекта.
+              </p>
+            </li>
+            <li class="" data-id="3">
+              <p class="stages__title">РАЗРАБОТКА <span>ПРОТОТИПА</span></p>
+              <p class="stages__text">
+                UX/UI-дизайнер прорабатывает пользовательские сценарии и создает
+                интуитивно понятную структуру сайта .
+                <br /><br />
+                <span>Это нужно, чтобы:</span> <br />
+                проработать различные пути взаимодействия пользователя с сайтом.
+                точно оценить масштаб проекта. синхронизировать
+                функциональность.
+              </p>
+            </li>
+            <li class="item-hidden" data-id="4">
+              <p class="stages__title">Веб-дизайн</p>
+              <p class="stages__text">
+                Создаем уникальный дизайн для десктопной и мобильной версий. Это
+                магический процесс, который завершается презентацией проекта
+                перед вами.
+              </p>
+            </li>
+            <li class="item-hidden" data-id="5">
+              <p class="stages__title">
+                Подготовка под front-end разработку и верстку
+              </p>
+              <p class="stages__text">
+                Предоставляем готовый дизайн-макет будущего сайта разработчикам.
+                На этом этапе речь идет о технической работе, а не о творчестве.
+                Мы также проводим дополнительные консультации до финальной
+                передачи проекта.
+              </p>
+            </li>
+          </ul>
+          <div class="wrapper-svg">
+            <a href="#footer">
+              <svg
+                viewBox="0 0 180 180"
+                class="stages__svg"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+              >
+                <defs>
+                  <path
+                    class="stages__path"
+                    d="M5,80a75,75 0 1,0 150,0a75,75 0 1,0 -150,0"
+                    id="textcircle"
+                  />
+                </defs>
+                <text class="svg-text">
+                  <textPath xlink:href="#textcircle">
+                    хочу начать новый проект
+                  </textPath>
+                </text>
+              </svg>
+              <img src="./image/arrow.png" alt="" />
+            </a>
+          </div>
+        </div>
+        <!-- </div> -->
+      </section>
+
+      <section class="awards-section">
+        <div class="awards-container">
+          <h3 class="awards__title">Международные награды</h3>
+          <ul class="awards__list">
+            <li class="awards__item">
+              <img
+                class="awards__photo"
+                src="./image/awards/awards3.png"
+                alt=""
+                width="281"
+              />
+            </li>
+            <li class="awards__item">
+              <img
+                class="awards__photo awards__second-photo"
+                src="./image/awards/awards2.png"
+                alt=""
+                width="281"
+              />
+            </li>
+            <li class="awards__item">
+              <img
+                class="awards__photo"
+                src="./image/awards/awards.png"
+                alt=""
+                width="281"
+              />
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="cases-section">
+        <div class="container cases-container">
+          <div class="wrapper-title">
+            <h3 class="cases__title">Кейси</h3>
+            <p class="cases__text">
+              Создаем персонализированные решения для достижения бизнес-целей
+              вашего бренда.
+            </p>
+          </div>
+          <ul class="cases__list">
+            <li class="cases__item">
+              <a class="js-cursor-hover" href="">
+                <img
+                  src="./image/cases/case1.png"
+                  alt=""
+                  class="cases__photo"
+                />
+                <p class="cases__subtitle">Eridon</p>
+                <p class="cases__deck">Сайт для компании электросети</p>
+                <span class="hover-mouse js-hover-mouse"></span>
+              </a>
+            </li>
+            <li class="cases__item cases__item-small">
+              <a class="js-cursor-hover" href="">
+                <img
+                  src="./image/cases/case2.png"
+                  alt=""
+                  class="cases__photo"
+                />
+                <p class="cases__subtitle">Antonov</p>
+                <p class="cases__deck">Сайт для Авиакомпании</p>
+                <span class="hover-mouse js-hover-mouse"></span>
+              </a>
+            </li>
+            <li class="cases__item cases__item-small">
+              <a class="js-cursor-hover" href="">
+                <img
+                  src="./image/cases/case3.png"
+                  alt=""
+                  class="cases__photo"
+                />
+                <p class="cases__subtitle">Carbon champagne</p>
+                <p class="cases__deck">
+                  Promotional 3D video for a premium French champagne brand
+                </p>
+                <span class="hover-mouse js-hover-mouse"></span>
+              </a>
+            </li>
+            <li class="cases__item">
+              <a class="js-cursor-hover" href="">
+                <img
+                  src="./image/cases/case4.png"
+                  alt=""
+                  class="cases__photo"
+                />
+                <p class="cases__subtitle">Arkway</p>
+                <p class="cases__deck">
+                  Strategy / branding / website for a European transport company
+                </p>
+                <span class="hover-mouse js-hover-mouse"></span>
+              </a>
+            </li>
+          </ul>
+          <ul class="cases__list js-cases__list">
+            <li class="cases__item">
+              <a class="js-cursor-hover" href="">
+                <img
+                  src="./image/cases/case5.png"
+                  alt=""
+                  class="cases__photo"
+                />
+                <p class="cases__subtitle">Eridon</p>
+                <p class="cases__deck">Site/portal for an energy company</p>
+                <span class="hover-mouse js-hover-mouse"></span>
+              </a>
+            </li>
+            <li class="cases__item cases__item-small">
+              <a class="js-cursor-hover" href="">
+                <img
+                  src="./image/cases/case6.png"
+                  alt=""
+                  class="cases__photo"
+                />
+                <p class="cases__subtitle">Antonov</p>
+                <p class="cases__deck">Airline website</p>
+                <span class="hover-mouse js-hover-mouse"></span>
+              </a>
+            </li>
+            <li class="cases__item cases__item-small">
+              <a class="js-cursor-hover" href="">
+                <img
+                  src="./image/cases/case7.png"
+                  alt=""
+                  class="cases__photo"
+                />
+                <p class="cases__subtitle">Carbon champagne</p>
+                <p class="cases__deck">
+                  Promotional 3D video for a premium French champagne brand
+                </p>
+                <span class="hover-mouse js-hover-mouse"></span>
+              </a>
+            </li>
+            <li class="cases__item">
+              <a class="js-cursor-hover" href="">
+                <img
+                  src="./image/cases/case8.png"
+                  alt=""
+                  class="cases__photo"
+                />
+                <p class="cases__subtitle">Arkway</p>
+                <p class="cases__deck">
+                  Strategy / branding / website for a European transport company
+                </p>
+                <span class="hover-mouse js-hover-mouse"></span>
+              </a>
+            </li>
+          </ul>
+          <button
+            class="cases__button cases__button-black js-cases__button"
+            type="button"
+          >
+            Больше
+          </button>
+          <button class="cases__button" type="button">Начать проэкт</button>
+        </div>
+      </section>
+      <section class="figures-section">
+        <div class="figures-container">
+          <h3 class="figures__title">Веб-дизайн от Rubarb в цифрах</h3>
+          <ul class="figures__list">
+            <li class="figures__item">
+              <p class="figures__item-number">4</p>
+              <p class="figures__item-text">
+                месяца, средний<br />
+                срок исполнения
+              </p>
+            </li>
+            <li class="figures__item">
+              <p class="figures__item-number">25+</p>
+              <p class="figures__item-text">проэктов в год</p>
+            </li>
+            <li class="figures__item">
+              <p class="figures__item-number">11</p>
+              <p class="figures__item-text">специалистов</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section class="team-section">
+        <div class="container">
+          <h2 class="team__title">Наша web-команда</h2>
+          <ul class="team__list">
+            <li class="team__item">
+              <img src="./image/team/team.jpg" alt="" class="team__photo" />
+              <p class="team__name">Родион</p>
+              <p class="team__profession">Маркетинговый стратег</p>
+            </li>
+            <li class="team__item team__item-top">
+              <img src="./image/team/team2.jpg" alt="" class="team__photo" />
+              <p class="team__name">Марина</p>
+              <p class="team__profession">Руководитель отдела брендинга</p>
+            </li>
+            <li class="team__item">
+              <img src="./image/team/team3.jpg" alt="" class="team__photo" />
+              <p class="team__name">Лиза</p>
+              <p class="team__profession">Проджект-менеджер</p>
+            </li>
+            <li class="team__item">
+              <img src="./image/team/team4.jpg" alt="" class="team__photo" />
+              <p class="team__name">Роман</p>
+              <p class="team__profession">веб-дизанер</p>
+            </li>
+            <li class="team__item team__item-top">
+              <img src="./image/team/team5.jpg" alt="" class="team__photo" />
+              <p class="team__name">Анастасия</p>
+              <p class="team__profession">Арт-директор</p>
+            </li>
+            <li class="team__item">
+              <img src="./image/team/team6.jpg" alt="" class="team__photo" />
+              <p class="team__name">Катя</p>
+              <p class="team__profession">Старший веб-дизайнер</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section class="faq-section">
+        <div class="container">
+          <h3 class="faq-title">FAQ</h3>
+          <ul class="faq__list js-list">
+            <li class="faq__item">
+              <div class="faq__wrapper-text">
+                <p class="faq__question">
+                  Что входит в разработку веб-дизайна?
+                </p>
+                <div class="js-container-svg container-svg" id="1">
+                  <svg class="faq__svg js-svg__button" width="20" height="20">
+                    <use href="image/icons.svg#icon-plus"></use>
+                  </svg>
+                  <svg
+                    class="faq__svg-minus js-svg__button-minus is-hidden"
+                    width="20"
+                    height="20"
+                  >
+                    <use href="image/icons.svg#icon-minus"></use>
+                  </svg>
+                </div>
+              </div>
+              <p class="question__text js-question__text hidden">
+                Процесс разработки веб-дизайна включает следующие этапы: анализ
+                сферы вашего бизнеса и конкурентов; создание структуры сайта;
+                разработка самого дизайна и адаптива для разных устройств;
+                наполнение контентом и передача дизайн-файла клиенту. 
+              </p>
+            </li>
+            <li class="faq__item">
+              <div class="faq__wrapper-text">
+                <p class="faq__question">
+                  Что такое адаптивный дизайн и почему он важен?
+                </p>
+                <div class="js-container-svg container-svg" id="2">
+                  <svg class="faq__svg js-svg__button" width="20" height="20">
+                    <use href="image/icons.svg#icon-plus"></use>
+                  </svg>
+                  <svg
+                    class="faq__svg-minus js-svg__button-minus is-hidden"
+                    width="20"
+                    height="20"
+                  >
+                    <use href="image/icons.svg#icon-minus"></use>
+                  </svg>
+                </div>
+              </div>
+              <p class="question__text js-question__text hidden">
+                Адаптивный дизайн подразумевает автоматическое изменение макета
+                сайта в зависимости от размера экрана устройства (десктоп,
+                планшет, смартфон). Это повышает юзабилити и лояльность клиентов
+                к вашей компании.
+              </p>
+            </li>
+            <li class="faq__item">
+              <div class="faq__wrapper-text">
+                <p class="faq__question">
+                  Сколько стоит разработка веб-дизайна для сайта?
+                </p>
+                <div class="js-container-svg container-svg" id="3">
+                  <svg class="faq__svg js-svg__button" width="20" height="20">
+                    <use href="image/icons.svg#icon-plus"></use>
+                  </svg>
+                  <svg
+                    class="faq__svg-minus js-svg__button-minus is-hidden"
+                    width="20"
+                    height="20"
+                  >
+                    <use href="image/icons.svg#icon-minus"></use>
+                  </svg>
+                </div>
+              </div>
+              <p class="question__text js-question__text hidden">
+                Стоимость разработки веб-дизайна зависит от типа сайта (лендинг,
+                корпоративный, интернет-магазин, портал) и функционала.
+                Свяжитесь с командой Rubarb для получения конкретной оценки
+                вашего проекта.
+              </p>
+            </li>
+            <li class="faq__item">
+              <div class="faq__wrapper-text">
+                <p class="faq__question">
+                  Какова роль веб-дизайна в создании сайта моей компании?
+                </p>
+                <div class="js-container-svg container-svg" id="4">
+                  <svg class="faq__svg js-svg__button" width="20" height="20">
+                    <use href="image/icons.svg#icon-plus"></use>
+                  </svg>
+                  <svg
+                    class="faq__svg-minus js-svg__button-minus is-hidden"
+                    width="20"
+                    height="20"
+                  >
+                    <use href="image/icons.svg#icon-minus"></use>
+                  </svg>
+                </div>
+              </div>
+              <p class="question__text js-question__text hidden">
+                Веб-дизайн играет ключевую роль в создания уникального
+                онлайн-присутствия вашего бизнеса, где уникальный и удобный
+                интерфейс не только привлекает, но и удерживает клиентов на
+                странице. Эффективный веб-дизайн улучшает взаимодействие с
+                пользователем, транслирует индивидуальность вашего бренда и
+                помогает в достижении конкретных бизнес-целей компании.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <!-- footer -->
+    </main>
+    <script src="./js/index.js"></script>
+  </body>
+</html>

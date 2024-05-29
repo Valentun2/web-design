@@ -1,0 +1,22 @@
+<svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<symbol id="icon-burger" viewBox="0 0 32 32">
+<path fill="none" stroke="#fff" style="stroke: var(--color1, #fff)" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="2.1818" d="M1.455 4.364h29.091"></path>
+<path fill="none" stroke="#fff" style="stroke: var(--color1, #fff)" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="2.1818" d="M8 16h16"></path>
+<path fill="none" stroke="#fff" style="stroke: var(--color1, #fff)" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="2.1818" d="M1.455 27.636h29.091"></path>
+</symbol>
+<symbol id="icon-plus" viewBox="0 0 36 32">
+<path style="fill: var(--color2, #ffffff)" d="M21.141 16.188l7.146-7.146-3.176-3.176-7.145 7.146-7.146-7.146-3.176 3.176 7.146 7.146-7.146 7.146 3.176 3.176 7.145-7.145 7.145 7.145 3.176-3.176-7.145-7.145z"></path>
+</symbol>
+<symbol id="icon-minus" viewBox="0 0 96 32">
+<path fill="#fff" style="fill: var(--color1, #fff)" d="M8.533 29.867v-19.84h83.84v19.84h-83.84z"></path>
+</symbol>
+<symbol id="icon-Vector-3-1" viewBox="0 0 18 32">
+<path d="M0.999151 1L6.73828 7L0.99915 13" stroke="black"/>
+</symbol>
+<symbol id="icon-close" viewBox="0 0 32 32">
+<path stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="1.1852" d="M30.938 0.419l-29.332 29.332"></path>
+<path stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="1.1852" d="M30.248 30.492l-29.332-29.332"></path>
+</symbol>
+</defs>
+</svg>
