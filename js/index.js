@@ -126,15 +126,14 @@ function moveMouse() {
   const distanceY = mouseY - containerMouseY;
   const spanWidth = containerMouse.offsetWidth;
   const spanHeight = containerMouse.offsetHeight;
-  containerMouseX += (distanceX - spanWidth / 2) * 0.1;
-  containerMouseY += (distanceY - spanHeight / 2) * 0.1;
+  containerMouseX += (distanceX - spanWidth / 2) * 0.08;
+  containerMouseY += (distanceY - spanHeight / 2) * 0.08;
 
   containerMouse.style.left = containerMouseX + 'px';
   containerMouse.style.top = containerMouseY + 'px';
 
   if (Math.abs(distanceX) > 1 || Math.abs(distanceY) > 1) {
     animationFrameId = requestAnimationFrame(moveMouse);
-    console.log(1);
   } else {
     isMoving = false;
   }
