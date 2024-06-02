@@ -183,7 +183,7 @@ function counters() {
 const target = document.querySelector('.js-figures-section');
 
 const options = {
-  rootMargin: '300px',
+  rootMargin: '200px',
   threshold: 1.0,
 };
 

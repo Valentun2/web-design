@@ -350,7 +350,6 @@ button {
 }
 
 .create__item {
-  font-family: var(--second-text);
   padding: 28px 0;
   width: 305px;
   border: 1px solid black;
@@ -368,6 +367,8 @@ button {
 
 @media only screen and (min-width: 1024px) {
   .create__item {
+    font-family: var(--second-text);
+
     width: 245px;
   }
 }
@@ -421,7 +422,6 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
   font-size: 16px;
   pointer-events: none;
 }
@@ -536,7 +536,6 @@ button {
   }
 }
 .stages__item {
-  font-family: var(--second-text);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -587,6 +586,8 @@ button {
 
 @media only screen and (min-width: 1024px) {
   .stages__item {
+    font-family: var(--second-text);
+
     font-weight: 500;
     font-size: 14px;
     height: 70px;
@@ -1327,14 +1328,14 @@ button {
 @media only screen and (min-width: 1440px) {
   .cases__text {
     text-align: left;
-
-    width: 600px;
+    width: 485px;
     font-size: 20px;
   }
 }
 
 @media only screen and (min-width: 1920px) {
   .cases__text {
+    width: 600px;
     font-size: 24px;
   }
 }
