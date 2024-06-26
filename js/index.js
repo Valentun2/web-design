@@ -85,9 +85,8 @@ function handleButtonLoadMore() {
 // ============================  MOUSE   =========================================
 
 const links = document.querySelectorAll('.js-cursor-hover');
-const span = document.querySelectorAll('.js-hover-mouse');
+// const span = document.querySelectorAll('.js-hover-mouse');
 
-console.log(span);
 links.forEach(link => link.addEventListener('mousemove', handleMouseMove));
 
 let mouseX;
@@ -199,3 +198,95 @@ function hanglerload(entries) {
 }
 
 // ===================
+
+const technologiesDeckItems = document.querySelectorAll(
+  '.js-technologies__desc-item'
+);
+// console.dir(technologiesDeckItems);
+let prevTechnologi = technologiesDeckItems[0];
+const cards = document.querySelectorAll('.js-technologies__item-card');
+cards.forEach(card => {
+  card.addEventListener('click', cardClick);
+});
+
+function cardClick(e) {
+  if (
+    prevTechnologi.dataset.id === e.target.dataset.id ||
+    e.target.nodeName !== 'LI'
+  ) {
+    return;
+  }
+  let locPrev;
+  prevTechnologi.classList.remove('prev');
+
+  cards.forEach(card => {
+    card.classList.remove('is-active');
+  });
+  technologiesDeckItems.forEach(item => {
+    item.classList.remove('is-visible');
+    item.classList.remove('prev');
+
+    if (item.dataset.id === e.target.dataset.id) {
+      e.target.classList.add('is-active');
+      item.classList.add('is-visible');
+      locPrev = item;
+    }
+  });
+  // prevTechnologi.classList.add('prev');
+
+  prevTechnologi = locPrev;
+}
+
+// ================
+
+// ==============  TEAM  ====================
+const main = document.querySelector('main');
+const closeModal = document.querySelector('.js-close-button');
+const modalContainer = document.querySelector('.backdrop');
+const teamCards = document.querySelectorAll('.js-team__item');
+const listCardsModal = document.querySelector('.js-modal');
+modalContainer.addEventListener('click', e => {
+  if (e.target.nodeName === 'DIV') {
+    e.target.classList.add('is-hidden');
+    document.body.style.overflow = '';
+  }
+});
+teamCards.forEach(card => card.addEventListener('click', handleClickTeamCard));
+
+function handleClickTeamCard(e) {
+  [...listCardsModal.children].forEach(item =>
+    item.setAttribute('hidden', 'true')
+  );
+  listCardsModal.children[e.target.dataset.id - 1].removeAttribute('hidden');
+  modalContainer.classList.toggle('is-hidden');
+  document.body.style.overflow = 'hidden';
+}
+
+closeModal.addEventListener('click', () => {
+  document.body.style.overflow = '';
+
+  modalContainer.classList.toggle('is-hidden');
+});
+
+// =================   ================
+
+const section = document.querySelector('.js-technologies-section');
+const cursor = document.querySelector('.js-technologies-cursor');
+section.addEventListener('mousemove', handleMouseTechnologies);
+
+let mouseTechnologiesX;
+let mouseTechnologiesY;
+let containerTechnologiesMouseX = 0;
+let containerTechnologiesMouseY = 0;
+
+function handleMouseTechnologies(e) {
+  const sectionRect = section.getBoundingClientRect();
+
+  mouseTechnologiesX = e.clientX - sectionRect.left;
+  mouseTechnologiesY = e.clientY - sectionRect.top;
+
+  containerTechnologiesMouseX = mouseTechnologiesX - cursor.offsetWidth / 2;
+  containerTechnologiesMouseY = mouseTechnologiesY - cursor.offsetHeight / 2;
+  cursor.style.left = containerTechnologiesMouseX + 'px';
+  cursor.style.top = containerTechnologiesMouseY + 'px';
+}
