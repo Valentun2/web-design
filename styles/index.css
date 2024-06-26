@@ -1783,13 +1783,31 @@ button {
   border-radius: 40px;
   text-transform: uppercase;
   display: flex;
-  background: linear-gradient(to right, black, black);
+  /* background: linear-gradient(to right, black, black); */
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 24px;
   transition: all 0.5s linear;
+  position: relative;
 }
+
+.technologies__item-card::after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(212, 252, 91, 1),
+    rgba(255, 217, 52, 1)
+  );
+  position: absolute;
+  border: transparent;
+  border-radius: 40px;
+  opacity: 0;
+  transition: all 0.5s linear;
+}
+
 @media only screen and (max-width: 1023px) {
   .technologies__item-card {
     width: 142px;
@@ -1819,18 +1837,20 @@ button {
 
 .technologies__item-card.is-active {
   border: transparent;
-  background: linear-gradient(
-    to right,
-    rgba(212, 252, 91, 1),
-    rgba(255, 217, 52, 1)
-  );
   color: var(--main-color);
   box-shadow: 0px 4px 100px 0px rgba(255, 217, 52, 0.5);
   transition: all 0.5s linear;
 }
 
+.technologies__item-card.is-active::after {
+  transition: all 0.5s linear;
+
+  opacity: 1;
+}
+
 .technologies__item-card.is-active .technologies-svg {
   fill: var(--main-color);
+  z-index: 5;
 }
 
 .technologies__item-card p {
@@ -1839,6 +1859,7 @@ button {
   font-size: 20px;
   text-align: center;
   pointer-events: none;
+  z-index: 5;
 }
 
 @media only screen and (max-width: 767px) {
@@ -1859,18 +1880,18 @@ button {
   }
 }
 .technologies__desc-item {
-  transform: translateY(-100px);
-  transition: transform 0.5s linear, opacity 0.2s linear;
-  /* display: block; */
+  transform: translateY(-50px);
+  transition: transform 1s linear, opacity 0.3s linear;
   position: absolute;
   opacity: 0;
 }
 
 .technologies__desc-item.is-visible {
-  transition: transform 0.5s linear, opacity 0.2s linear;
+  transform: translateY(0px);
+
+  transition: transform 0.5s linear, opacity 0.5s linear;
   opacity: 1;
   position: absolute;
-  transform: translateY(0px);
 }
 
 /* .technologies__desc-item.prev {
@@ -1953,7 +1974,8 @@ h2.technologies__title-mobile {
 .technologies__desc-list {
   height: 160px;
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; */
+  /* transition: all 1s linear; */
 }
 
 @media only screen and (min-width: 425px) {
