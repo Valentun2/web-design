@@ -202,39 +202,42 @@ function hanglerload(entries) {
 const technologiesDeckItems = document.querySelectorAll(
   '.js-technologies__desc-item'
 );
-// console.dir(technologiesDeckItems);
-let prevTechnologi = technologiesDeckItems[0];
+let prevS = technologiesDeckItems[0];
+prevS.style.bottom = '0px';
+
 const cards = document.querySelectorAll('.js-technologies__item-card');
 cards.forEach(card => {
   card.addEventListener('click', cardClick);
 });
 
 function cardClick(e) {
-  if (
-    prevTechnologi.dataset.id === e.target.dataset.id ||
-    e.target.nodeName !== 'LI'
-  ) {
-    return;
-  }
-  let locPrev;
-  prevTechnologi.classList.remove('prev');
-
   cards.forEach(card => {
     card.classList.remove('is-active');
   });
+  // prevS.classList.add('prev');
   technologiesDeckItems.forEach(item => {
     item.classList.remove('is-visible');
-    item.classList.remove('prev');
-
+    item.classList.remove('next');
+    // item.classList.remove('prev');
+    console.dir(item.scrollHeight);
     if (item.dataset.id === e.target.dataset.id) {
+      item.style.bottom = prevS.scrollHeight - item.scrollHeight + 'px';
       e.target.classList.add('is-active');
       item.classList.add('is-visible');
-      locPrev = item;
+      item.classList.add('next');
+      setTimeout(() => {
+        prevS.style.bottom = item.scrollHeight - prevS.scrollHeight + 'px';
+        item.style.bottom = '0px';
+
+        prevS = item;
+      }, 0);
     }
+    // prevS.style.bottom = '0px';
+    // prevS.classList.add('prev');
   });
   // prevTechnologi.classList.add('prev');
 
-  prevTechnologi = locPrev;
+  // prevTechnologi = locPrev;
 }
 
 // ================
@@ -274,19 +277,78 @@ const section = document.querySelector('.js-technologies-section');
 const cursor = document.querySelector('.js-technologies-cursor');
 section.addEventListener('mousemove', handleMouseTechnologies);
 
-let mouseTechnologiesX;
-let mouseTechnologiesY;
-let containerTechnologiesMouseX = 0;
-let containerTechnologiesMouseY = 0;
+// let mouseTechnologiesX;
+// let mouseTechnologiesY;
+// let containerTechnologiesMouseX = 0;
+// let containerTechnologiesMouseY = 0;
+
+let prevTime = 0;
+const threshold = 5; // Поріг швидкості для створення сліду
+let prevMouseX = 0;
+let prevMouseY = 0;
+// const thresholdX = cursor.offsetWidth; // Поріг зміщення по X
+const thresholdY = cursor.offsetHeight / 2; // Поріг зміщення по Y
 
 function handleMouseTechnologies(e) {
-  const sectionRect = section.getBoundingClientRect();
+  // console.dir(cursor.offsetWidth / 1.1);
+  const container = section.getBoundingClientRect();
+  const mouseX = e.clientX - container.left;
+  const mouseY = e.clientY - container.top;
+  if (mouseX - prevMouseX > cursor.offsetWidth / 1.2) {
+    if (mouseX - prevMouseX > cursor.offsetHeight / 1.15) {
+      createElement(cursor.style.left, cursor.style.top);
+      cursor.style.left = prevMouseX + cursor.offsetWidth + 'px';
+    } else {
+      cursor.style.left = prevMouseX + cursor.offsetWidth / 2 + 'px';
+    }
+    prevMouseX = mouseX;
+  } else if (mouseX - prevMouseX < 0) {
+    if (mouseX - prevMouseX < -8) {
+      createElement(cursor.style.left, cursor.style.top);
+      cursor.style.left = prevMouseX - cursor.offsetWidth + 'px';
+    } else {
+      cursor.style.left = prevMouseX - cursor.offsetWidth / 2 + 'px';
+    }
+    prevMouseX = mouseX - cursor.offsetWidth / 2;
+  }
+  if (mouseY - prevMouseY > cursor.offsetHeight / 1.2) {
+    if (mouseY - prevMouseY > cursor.offsetHeight / 1.15) {
+      createElement(cursor.style.left, cursor.style.top);
 
-  mouseTechnologiesX = e.clientX - sectionRect.left;
-  mouseTechnologiesY = e.clientY - sectionRect.top;
+      cursor.style.top = prevMouseY + cursor.offsetHeight + 'px';
+    } else {
+      cursor.style.top = prevMouseY + cursor.offsetHeight / 2 + 'px';
+    }
+    prevMouseY = mouseY;
+    // createElement(mouseY, mouseY);
+  } else if (mouseY - prevMouseY < 0) {
+    if (mouseY - prevMouseY < -8) {
+      createElement(cursor.style.left, cursor.style.top);
 
-  containerTechnologiesMouseX = mouseTechnologiesX - cursor.offsetWidth / 2;
-  containerTechnologiesMouseY = mouseTechnologiesY - cursor.offsetHeight / 2;
-  cursor.style.left = containerTechnologiesMouseX + 'px';
-  cursor.style.top = containerTechnologiesMouseY + 'px';
+      cursor.style.top = prevMouseY - cursor.offsetHeight + 'px';
+    } else {
+      cursor.style.top = prevMouseY - cursor.offsetHeight / 2 + 'px';
+    }
+
+    // cursor.style.top = mouseY - cursor.offsetHeight / 2 + 'px';
+    prevMouseY = mouseY - cursor.offsetHeight / 2;
+  }
+}
+
+function createElement(x, y) {
+  const trail = document.createElement('div');
+  trail.classList.add('technologies-cursor');
+  trail.style.left = x;
+  trail.style.top = y;
+
+  section.insertAdjacentElement('beforeend', trail);
+
+  setTimeout(() => {
+    trail.style.opacity = '0';
+    trail.style.transition = 'opacity 0.2s linear';
+  }, 200);
+
+  setTimeout(() => {
+    trail.remove();
+  }, 300);
 }

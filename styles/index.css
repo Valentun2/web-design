@@ -843,7 +843,7 @@ button {
     padding-left: 289px;
   }
   .stages__text-container {
-    width: 733px;
+    width: 825px;
   }
 }
 
@@ -874,6 +874,7 @@ button {
 
 @media only screen and (min-width: 1920px) {
   .stages__title {
+    font-size: 50px;
     transform: translateX(-1000px);
     transition: all 1.8s linear;
   }
@@ -941,7 +942,7 @@ button {
 
 @media only screen and (min-width: 1920px) {
   .stages__title {
-    font-size: 44px;
+    font-size: 50px;
   }
 }
 
@@ -1660,10 +1661,12 @@ button {
 /* ===========================================  TEHNOLOGIES  ===================== */
 
 .technologies-section {
+  overflow: hidden;
   position: relative;
   padding: 75px 0;
   background: var(--main-color);
   color: var(--main-text-color);
+  /* transition: all 0.5s linear; */
 }
 
 @media only screen and (min-width: 768px) {
@@ -1726,11 +1729,11 @@ button {
 
 @media only screen and (min-width: 1024px) {
   .technologies-wrapper {
-    width: 240px;
+    width: 350px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 20px 0;
+    padding-top: 20px;
   }
 }
 @media only screen and (min-width: 1440px) {
@@ -1766,7 +1769,13 @@ button {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .technologies__list-cards {
     row-gap: 32px;
+    /* width: 1129px; */
   }
 }
 
@@ -1874,25 +1883,52 @@ button {
   }
 }
 
+@media only screen and (min-width: 1024px) {
+  .technologies__item-card p {
+    font-size: 12px;
+  }
+}
+
 @media only screen and (min-width: 1440px) {
+  .technologies__item-card p {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (min-width: 1920px) {
   .technologies__item-card p {
     font-size: 20px;
   }
 }
+
 .technologies__desc-item {
-  transform: translateY(-50px);
-  transition: transform 1s linear, opacity 0.3s linear;
+  /* height: auto; */
+  transition: all 0.5s linear;
   position: absolute;
   opacity: 0;
+  /* bottom: 0px; */
+  /* display: none; */
 }
 
 .technologies__desc-item.is-visible {
-  transform: translateY(0px);
-
-  transition: transform 0.5s linear, opacity 0.5s linear;
+  /* height: auto; */
+  transition: all 0.5s linear;
   opacity: 1;
-  position: absolute;
+
+  bottom: 0;
 }
+
+.technologies__desc-item.next {
+  opacity: 1;
+  transition: all 0.5s linear;
+  bottom: 0;
+}
+
+/* .technologies__desc-item.prev {
+  opacity: 0;
+  transition: opacity 1s linear, all 1s linear;
+  bottom: 0px;
+} */
 
 /* .technologies__desc-item.prev {
   transition: transform 0.5s linear;
@@ -1932,6 +1968,7 @@ h2.technologies__title {
   font-weight: 600;
   font-size: 35px;
   margin-bottom: 35px;
+  color: #ffffff;
 }
 
 @media only screen and (min-width: 1024px) {
@@ -1972,11 +2009,22 @@ h2.technologies__title-mobile {
 }
 
 .technologies__desc-list {
+  display: flex;
+  flex-direction: column;
   height: 160px;
   position: relative;
-  /* overflow: hidden; */
+  overflow: hidden;
   /* transition: all 1s linear; */
+  /* transform: translateY(-50px); */
 }
+
+/* .technologies__desc-list.html {
+  max-height: 150px;
+}
+
+.technologies__desc-list.css {
+  max-height: 100px;
+} */
 
 @media only screen and (min-width: 425px) {
   .technologies__desc-list {
@@ -2036,15 +2084,36 @@ h2.technologies__title-mobile {
   opacity: 0;
   filter: blur(40px);
   pointer-events: none;
-  transition: all 0.3s linear;
+  /* transition: all 0.3s linear; */
 }
 
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 1440px) {
   .technologies-cursor {
     width: 240px;
     height: 240px;
     filter: blur(60px);
   }
+}
+
+.trail {
+  content: '';
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(234, 0, 72, 1),
+    rgba(212, 252, 91, 1)
+  );
+  position: absolute;
+
+  /* display: none; */
+  pointer-events: none;
+  z-index: 9999;
+  /* opacity: 0; */
+  filter: blur(40px);
+  pointer-events: none;
+  /* transition: all 0.3s linear; */
 }
 
 .technologies-section:hover .technologies-cursor {
@@ -2757,3 +2826,14 @@ h3.faq-title.black-faq-title {
   pointer-events: none;
 }
 /* ========================= */
+
+/* 1920
+width: 43%; */
+
+/* 768 57% */
+
+/* 1440 51 */
+
+/* .text ul {
+    list-style: none;
+} */
