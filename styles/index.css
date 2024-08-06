@@ -334,6 +334,7 @@ button {
   line-height: 1.2;
   font-weight: 400;
   text-align: center;
+  font-family: 'Unbounded', sans-serif;
 }
 
 @media only screen and (min-width: 768px) {
@@ -1428,7 +1429,7 @@ button {
   height: 100px;
   border-radius: 50%;
   background-color: var(--second-color);
-  background-image: url('/images/cases/arrow-case.svg');
+  background-image: url('../image/arrow-case.svg');
   background-size: cover;
   position: absolute;
   padding: 20px;
@@ -1750,7 +1751,7 @@ button {
 }
 .wrapper-technologies__list-cards {
   margin-bottom: 35px;
-  overflow: auto;
+  /* overflow: auto; */
 }
 @media only screen and (min-width: 1024px) {
   .wrapper-technologies__list-cards {
@@ -1799,6 +1800,7 @@ button {
   gap: 24px;
   transition: all 0.5s linear;
   position: relative;
+  cursor: pointer;
 }
 
 .technologies__item-card::after {
@@ -1847,7 +1849,7 @@ button {
 .technologies__item-card.is-active {
   border: transparent;
   color: var(--main-color);
-  box-shadow: 0px 4px 100px 0px rgba(255, 217, 52, 0.5);
+  box-shadow: 0px 4px 100px 40px rgba(255, 217, 52, 0.5);
   transition: all 0.5s linear;
 }
 
@@ -1923,22 +1925,6 @@ button {
   transition: all 0.5s linear;
   bottom: 0;
 }
-
-/* .technologies__desc-item.prev {
-  opacity: 0;
-  transition: opacity 1s linear, all 1s linear;
-  bottom: 0px;
-} */
-
-/* .technologies__desc-item.prev {
-  transition: transform 0.5s linear;
-  transform: translateY(300px);
-}
-
-.technologies__desc-item.is-visible.prev {
-  opacity: 1;
-  transform: translateY(-300px);
-} */
 
 @media only screen and (min-width: 1024px) {
   .technologies__block {
@@ -2084,7 +2070,7 @@ h2.technologies__title-mobile {
   opacity: 0;
   filter: blur(40px);
   pointer-events: none;
-  transition: all 0.3s linear;
+  transition: all 0.15s linear;
 }
 
 @media only screen and (min-width: 1440px) {
@@ -2260,6 +2246,7 @@ h2.technologies__title-mobile {
 
 .team__item {
   width: 190px;
+  cursor: pointer;
 }
 
 @media only screen and (min-width: 768px) {
@@ -2427,7 +2414,7 @@ h2.technologies__title-mobile {
 .faq__wrapper-text {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 10px;
+  align-items: center;
   pointer-events: none;
 }
 
@@ -2498,17 +2485,25 @@ h3.faq-title.black-faq-title {
   line-height: 1.5;
   max-height: 0;
   transition: all 0.3s linear;
+  pointer-events: none;
 }
 
-@media only screen and (min-width: 764px) {
-  .question__text {
-    font-size: 20px;
+.question__text.is-visible {
+  margin-top: 10px;
+}
+
+@media only screen and (min-width: 768px) {
+  .question__text.is-visible {
+    margin-top: 20px;
   }
 }
 
 @media only screen and (min-width: 1440px) {
   .question__text {
     font-size: 24px;
+  }
+  .question__text.is-visible {
+    margin-top: 32px;
   }
 }
 
@@ -2625,7 +2620,6 @@ h3.faq-title.black-faq-title {
   display: flex;
   align-items: center;
   justify-content: center;
-  pointer-events: none;
 }
 
 /*==============================MODAL FORM==========================*/
@@ -2636,21 +2630,29 @@ h3.faq-title.black-faq-title {
   background-color: rgba(171, 171, 171, 0.6);
   width: 100%;
   height: 100%;
+  display: block;
+  opacity: 1;
 }
 .backdrop.is-hidden {
-  display: none;
+  opacity: 0;
+  z-index: -100;
 }
 .team-modal {
   padding: 30px 36px 46px;
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(1);
+  transform: translate(-50%, -70%) scale(1);
   background-color: var(--main-color);
-  max-height: calc(100vh);
+  max-height: calc(95vh);
   outline: 0;
   overflow: auto;
   width: 278px;
+  transition: all 0.5s ease-out;
+}
+
+.team-modal.is-visible {
+  transform: translate(-50%, -50%) scale(1);
 }
 
 .team-modal ul {
@@ -2686,6 +2688,14 @@ h3.faq-title.black-faq-title {
 .modal-item {
   color: var(--main-text-color);
   font-family: var(--second-text);
+  display: none;
+  transform: translateY(0px);
+  transition: all 1s linear;
+}
+
+.modal-item.is-visible {
+  display: block;
+  /* transform: translateY(0px); */
 }
 
 .modal__name {
@@ -2841,4 +2851,135 @@ h3.faq-title {
 
 .body-light h3.faq-title {
   color: white;
+}
+
+/*    ==============================             RIBBON   ==================================== */
+
+.ribbon {
+  padding: 12px 0;
+  margin: 0 auto;
+  overflow: hidden;
+  color: var(--second-color);
+  background: var(--main-color);
+  border-top: 1px solid var(--second-color);
+}
+
+.ribbon-container-first {
+  width: 200%;
+  display: flex;
+  align-items: center;
+  animation: ribbon__transform 4s linear infinite;
+}
+@media only screen and (min-width: 768px) {
+  .ribbon-container-first {
+    animation: ribbon__transform 5s linear infinite;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .ribbon-container-first {
+    animation: ribbon__transform 8s linear infinite;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .ribbon-container-first {
+    animation: ribbon__transform 9s linear infinite;
+  }
+}
+
+@media only screen and (min-width: 1920px) {
+  .ribbon-container-first {
+    animation: ribbon__transform 11s linear infinite;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .ribbon-container-first {
+    width: 200%;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .ribbon-container-first {
+    width: 294%;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .ribbon-container-first {
+    width: 280%;
+  }
+}
+
+@media only screen and (min-width: 1920px) {
+  .ribbon-container-first {
+    width: 215%;
+  }
+}
+
+.bisnes__wrraper-ribbon-content {
+  width: 60%;
+  display: flex;
+  align-items: center;
+}
+
+@media only screen and (min-width: 768px) {
+  .bisnes__wrraper-ribbon-content {
+    gap: 130px;
+    margin-right: 0;
+  }
+
+  .bisnes__wrraper-ribbon-content {
+    width: 50%;
+  }
+}
+
+.bisnes-ribbon__text-laptop-screen {
+  display: none;
+}
+
+.bisnes-ribbon__text-big-screen {
+  display: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .bisnes-ribbon__text-laptop-screen {
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .bisnes-ribbon__text-big-screen {
+    display: block;
+  }
+}
+
+.ribbon__text {
+  color: var(--second-color);
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  text-wrap: nowrap;
+  font-size: 20px;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+@media only screen and (min-width: 1440px) {
+  .ribbon__text {
+    font-size: 30px;
+  }
+}
+
+.wrapper-ribbon {
+  display: flex;
+  gap: 120px;
+}
+
+@keyframes ribbon__transform {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
