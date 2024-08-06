@@ -37,7 +37,7 @@ function handleClick(e) {
   e.target.classList.add('is-active');
 }
 
-const svgContainer = document.querySelectorAll('.js-container-svg');
+const svgContainer = document.querySelectorAll('.js-faq__item');
 const plusSvg = document.querySelectorAll('.js-svg__button');
 const answerText = document.querySelectorAll('.js-question__text');
 const svgMinus = document.querySelectorAll('.js-svg__button-minus');
@@ -47,18 +47,22 @@ svgContainer.forEach(el => {
 });
 
 function addTextAnswer(e) {
-  const id = e.target.id || e.target.parentElement.id;
-  if (e.target.nodeName === 'use') {
-    svgMinus[id - 1].classList.toggle('is-hidden');
-    plusSvg[id - 1].classList.toggle('is-hidden');
-    return;
-  }
+  console.log(e.target.id);
+  const id = e.target.id;
+  // if (e.target.nodeName === 'use') {
+  //   svgMinus[id - 1].classList.toggle('is-hidden');
+  //   plusSvg[id - 1].classList.toggle('is-hidden');
+  //   return;
+  // }
   svgMinus[id - 1].classList.toggle('is-hidden');
   plusSvg[id - 1].classList.toggle('is-hidden');
+  // answerText[id - 1].style.maxHeight;
+  // answerText[id - 1].style.maxHeight = answerText[id - 1].scrollHeight + 'px';
+
   if (answerText[id - 1].style.maxHeight) {
-    answerText.forEach(el => (el.style.maxHeight = null));
+    answerText[id - 1].style.maxHeight = null;
   } else {
-    answerText.forEach(el => (el.style.maxHeight = null));
+    // answerText.forEach(el => (el.style.maxHeight = null));
     answerText[id - 1].style.maxHeight = answerText[id - 1].scrollHeight + 'px';
   }
 }
@@ -243,6 +247,7 @@ function cardClick(e) {
 // ================
 
 // ==============  TEAM  ====================
+const t = document.querySelector('.team-modal');
 const main = document.querySelector('main');
 const closeModal = document.querySelector('.js-close-button');
 const modalContainer = document.querySelector('.backdrop');
@@ -261,12 +266,18 @@ function handleClickTeamCard(e) {
     item.setAttribute('hidden', 'true')
   );
   listCardsModal.children[e.target.dataset.id - 1].removeAttribute('hidden');
+
   modalContainer.classList.toggle('is-hidden');
+  t.classList.toggle('is-hidden');
   document.body.style.overflow = 'hidden';
+  document.body.style.marginRight = '17px';
+  // console.log(document.body.style);
 }
 
 closeModal.addEventListener('click', () => {
   document.body.style.overflow = '';
+  document.body.style.marginRight = '0px';
+  t.classList.toggle('is-hidden');
 
   modalContainer.classList.toggle('is-hidden');
 });

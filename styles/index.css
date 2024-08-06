@@ -2084,7 +2084,7 @@ h2.technologies__title-mobile {
   opacity: 0;
   filter: blur(40px);
   pointer-events: none;
-  /* transition: all 0.3s linear; */
+  transition: all 0.3s linear;
 }
 
 @media only screen and (min-width: 1440px) {
@@ -2428,6 +2428,7 @@ h2.technologies__title-mobile {
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
+  pointer-events: none;
 }
 
 .faq-title {
@@ -2468,6 +2469,7 @@ h3.faq-title.black-faq-title {
   font-size: 16px;
   line-height: 1.5;
   width: 273px;
+  pointer-events: none;
 }
 
 @media only screen and (min-width: 768px) {
@@ -2548,6 +2550,7 @@ h3.faq-title.black-faq-title {
   border-top: 1px var(--main-text-color) solid;
   padding: 10px 0;
   transition: all 1s linear;
+  cursor: pointer;
 }
 
 @media only screen and (min-width: 768px) {
@@ -2622,6 +2625,7 @@ h3.faq-title.black-faq-title {
   display: flex;
   align-items: center;
   justify-content: center;
+  pointer-events: none;
 }
 
 /*==============================MODAL FORM==========================*/
@@ -2636,7 +2640,7 @@ h3.faq-title.black-faq-title {
 .backdrop.is-hidden {
   display: none;
 }
-.modal {
+.team-modal {
   padding: 30px 36px 46px;
   position: absolute;
   top: 50%;
@@ -2649,32 +2653,32 @@ h3.faq-title.black-faq-title {
   width: 278px;
 }
 
-.modal ul {
+.team-modal ul {
   width: 100%;
 }
 
 @media only screen and (min-width: 768px) {
-  .modal {
+  .team-modal {
     padding: 40px 50px 52px;
     width: 356px;
   }
 }
 
 @media only screen and (min-width: 1024px) {
-  .modal {
+  .team-modal {
     padding: 50px 60px 72px;
     width: 456px;
   }
 }
 
 @media only screen and (min-width: 1440px) {
-  .modal {
+  .team-modal {
     padding: 60px 72px 92px;
     width: 556px;
   }
 }
 
-.modal::-webkit-scrollbar {
+.team-modal::-webkit-scrollbar {
   width: 0px;
   background: transparent;
 }
@@ -2827,13 +2831,14 @@ h3.faq-title.black-faq-title {
 }
 /* ========================= */
 
-/* 1920
-width: 43%; */
+h3.faq-title {
+  color: #ffffff;
+}
 
-/* 768 57% */
+.body-light h2.technologies__title {
+  color: white;
+}
 
-/* 1440 51 */
-
-/* .text ul {
-    list-style: none;
-} */
+.body-light h3.faq-title {
+  color: white;
+}
