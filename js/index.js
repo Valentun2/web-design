@@ -37,7 +37,7 @@ function handleClick(e) {
   e.target.classList.add('is-active');
 }
 
-const svgContainer = document.querySelectorAll('.js-faq__item');
+const svgContainer = document.querySelectorAll('.faq__item');
 const plusSvg = document.querySelectorAll('.js-svg__button');
 const answerText = document.querySelectorAll('.js-question__text');
 const svgMinus = document.querySelectorAll('.js-svg__button-minus');
@@ -47,26 +47,20 @@ svgContainer.forEach(el => {
 });
 
 function addTextAnswer(e) {
-  console.log(e.target.id);
   const id = e.target.id;
-  // if (e.target.nodeName === 'use') {
-  //   svgMinus[id - 1].classList.toggle('is-hidden');
-  //   plusSvg[id - 1].classList.toggle('is-hidden');
-  //   return;
-  // }
+  console.log(e.target);
   svgMinus[id - 1].classList.toggle('is-hidden');
   plusSvg[id - 1].classList.toggle('is-hidden');
-  // answerText[id - 1].style.maxHeight;
-  // answerText[id - 1].style.maxHeight = answerText[id - 1].scrollHeight + 'px';
 
   if (answerText[id - 1].style.maxHeight) {
+    answerText[id - 1].classList.toggle('is-visible');
     answerText[id - 1].style.maxHeight = null;
   } else {
-    // answerText.forEach(el => (el.style.maxHeight = null));
+    answerText[id - 1].classList.toggle('is-visible');
+
     answerText[id - 1].style.maxHeight = answerText[id - 1].scrollHeight + 'px';
   }
 }
-
 const casesContainer = document.querySelector('.js-cases__list');
 const buttonLoadMore = document.querySelector('.js-cases__button');
 
@@ -247,7 +241,9 @@ function cardClick(e) {
 // ================
 
 // ==============  TEAM  ====================
-const t = document.querySelector('.team-modal');
+
+const modalContent = document.querySelector('.team-modal');
+
 const main = document.querySelector('main');
 const closeModal = document.querySelector('.js-close-button');
 const modalContainer = document.querySelector('.backdrop');
@@ -255,31 +251,33 @@ const teamCards = document.querySelectorAll('.js-team__item');
 const listCardsModal = document.querySelector('.js-modal');
 modalContainer.addEventListener('click', e => {
   if (e.target.nodeName === 'DIV') {
+    modalContent.classList.remove('is-visible');
+
     e.target.classList.add('is-hidden');
     document.body.style.overflow = '';
+    document.body.style.marginRight = '0px';
   }
 });
 teamCards.forEach(card => card.addEventListener('click', handleClickTeamCard));
 
 function handleClickTeamCard(e) {
-  [...listCardsModal.children].forEach(item =>
-    item.setAttribute('hidden', 'true')
-  );
-  listCardsModal.children[e.target.dataset.id - 1].removeAttribute('hidden');
-
-  modalContainer.classList.toggle('is-hidden');
-  t.classList.toggle('is-hidden');
+  [...listCardsModal.children].forEach(item => {
+    item.classList.remove('is-visible');
+  });
+  modalContainer.classList.remove('is-hidden');
+  listCardsModal.children[e.target.dataset.id - 1].classList.add('is-visible');
+  modalContent.classList.add('is-visible');
   document.body.style.overflow = 'hidden';
   document.body.style.marginRight = '17px';
-  // console.log(document.body.style);
 }
 
 closeModal.addEventListener('click', () => {
+  modalContent.classList.remove('is-visible');
+
   document.body.style.overflow = '';
   document.body.style.marginRight = '0px';
-  t.classList.toggle('is-hidden');
 
-  modalContainer.classList.toggle('is-hidden');
+  modalContainer.classList.add('is-hidden');
 });
 
 // =================   ================
@@ -294,11 +292,10 @@ section.addEventListener('mousemove', handleMouseTechnologies);
 // let containerTechnologiesMouseY = 0;
 
 let prevTime = 0;
-const threshold = 5; // Поріг швидкості для створення сліду
+const threshold = 5;
 let prevMouseX = 0;
 let prevMouseY = 0;
-// const thresholdX = cursor.offsetWidth; // Поріг зміщення по X
-const thresholdY = cursor.offsetHeight / 2; // Поріг зміщення по Y
+const thresholdY = cursor.offsetHeight / 2;
 
 function handleMouseTechnologies(e) {
   // console.dir(cursor.offsetWidth / 1.1);
@@ -351,12 +348,14 @@ function createElement(x, y) {
   trail.classList.add('technologies-cursor');
   trail.style.left = x;
   trail.style.top = y;
+  trail.style.opacity = '1';
+
+  trail.style.transition = 'opacity 0.5s linear';
 
   section.insertAdjacentElement('beforeend', trail);
 
   setTimeout(() => {
     trail.style.opacity = '0';
-    trail.style.transition = 'opacity 0.2s linear';
   }, 200);
 
   setTimeout(() => {
